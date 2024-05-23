@@ -1,0 +1,89 @@
+:root {
+    --bar: #d4d4d4;
+    --font-color: black;
+    --foreground: white;
+    --background: rgb(111, 196, 224);
+    --shadow: #52516b5e;
+    --subtext: rgb(127, 126, 139);
+    --accent: rgb(166 243 247);
+    --light-accent: rgb(166 243 247 / 40%);
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-size: 18pt;
+}
+
+li {
+    list-style-type: none;
+}
+
+main {
+    width: 100dvw;
+    height: 100dvh;
+    background: var(--background);
+    color: var(--font-color);
+}
+
+#frame {
+    width: 90%;
+    height: 80%;
+    background-color: var(--foreground);
+    border-radius: 12px;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+#prompts {
+    height: 100%;
+    width: 100%;
+    gap: 8px;
+    padding: 8px;
+}
+
+#prompts section {
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.prompt {
+    color: var(--font-color);
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    margin: 4px;
+    border: none;
+    background: var(--light-accent);
+    box-shadow: 2px 2px 2px var(--shadow);
+    transition: background .2s;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.horizontal {
+    flex-direction: row;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+button:hover {
+    background: var(--accent);
+}
