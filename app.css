@@ -1,12 +1,15 @@
 :root {
     --bar: #d4d4d4;
-    --font-color: black;
-    --foreground: white;
-    --background: rgb(111, 196, 224);
-    --shadow: #52516b5e;
+    --font-color: rgb(26, 25, 26);
+    --foreground: #fceef5;
+    --background: #966a86;
+    --background: linear-gradient(90deg, rgba(171, 97, 126, 1) 0%, rgb(133, 96, 122) 100%);
+    --shadow: #68516b5e;
     --subtext: rgb(127, 126, 139);
-    --accent: rgb(166 243 247);
-    --light-accent: rgb(166 243 247 / 40%);
+    --accent: #f688e1;
+    --light-accent: #dc789e66;
+    --player1: #efbf74;
+    --player2: #38ba8d;
 }
 
 
@@ -18,7 +21,7 @@
     margin: 0;
     padding: 0;
     font-family: "Protest Strike", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18pt;
 }
 
@@ -34,11 +37,13 @@ main {
 }
 
 #frame {
-    width: 90%;
-    height: 80%;
+    width: 80%;
+    height: 75%;
     background-color: var(--foreground);
     border-radius: 12px;
-    box-shadow: 2px 2px 2px var(--shadow);
+    box-shadow: 8px 8px 8px var(--shadow);
+    margin-top: 100px;
+    padding: 8px;
 }
 
 #prompts {
@@ -62,8 +67,7 @@ main {
     margin: 4px;
     border: none;
     background: var(--light-accent);
-    box-shadow: 2px 2px 2px var(--shadow);
-    transition: background .2s;
+    transition: outline .2s;
 }
 
 .vertical {
@@ -85,5 +89,43 @@ main {
 }
 
 button:hover {
-    background: var(--accent);
+    outline: 4px solid var(--accent);
+}
+
+aside {
+    width: 148px;
+    position: absolute;
+    top: 0;
+    padding: 16px 4px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 8px 8px 8px var(--shadow);
+}
+
+
+#player1 {
+    left: 0;
+    border-radius: 0 0 56px 0;
+    background-color: var(--player1);
+
+    .name {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+    }
+}
+
+#player2 {
+    right: 0;
+    border-radius: 0 0 0 56px;
+    background-color: var(--player2);
+
+    .name {
+        font-family: "Cabin", sans-serif;
+        font-weight: 400;
+    }
+}
+
+.name {
+    font-size: 24pt;
 }
