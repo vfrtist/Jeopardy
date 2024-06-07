@@ -1,13 +1,14 @@
 :root {
     --bar: #d4d4d4;
     --font-color: rgb(26, 25, 26);
-    --foreground: #fceef5;
+    --foreground: #fceef5e3;
     --background: #966a86;
     --background: linear-gradient(90deg, rgba(171, 97, 126, 1) 0%, rgb(133, 96, 122) 100%);
     --shadow: #68516b5e;
     --subtext: rgb(127, 126, 139);
     --accent: #f688e1;
     --light-accent: #dc789e66;
+    --light-accent: #ffd0e2d1;
     --player1: #efbf74;
     --player2: #38ba8d;
 }
@@ -39,9 +40,9 @@ main {
 #frame {
     width: 80%;
     height: 75%;
-    background-color: var(--foreground);
+    /* background-color: var(--foreground); */
     border-radius: 12px;
-    box-shadow: 8px 8px 8px var(--shadow);
+    /* box-shadow: 8px 8px 8px var(--shadow); */
     margin-top: 100px;
     padding: 8px;
 }
@@ -67,7 +68,7 @@ main {
     margin: 4px;
     border: none;
     background: var(--light-accent);
-    transition: outline .2s;
+    transition: outline .2s, background-color .2s;
 }
 
 .vertical {
@@ -90,6 +91,7 @@ main {
 
 button:hover {
     outline: 4px solid var(--accent);
+    background-color: var(--foreground);
 }
 
 aside {
