@@ -1,16 +1,17 @@
 :root {
-    --bar: #d4d4d4;
     --font-color: rgb(26, 25, 26);
     --foreground: #fceef5e3;
     --background: #966a86;
     --background: linear-gradient(90deg, rgba(171, 97, 126, 1) 0%, rgb(133, 96, 122) 100%);
     --shadow: #68516b5e;
+    --title: #fceef5;
     --subtext: rgb(127, 126, 139);
     --accent: #f688e1;
     --light-accent: #dc789e66;
     --light-accent: #ffd0e2d1;
     --player1: #efbf74;
     --player2: #38ba8d;
+    --inactive: #d6c5cb88;
 }
 
 
@@ -68,7 +69,7 @@ main {
     margin: 4px;
     border: none;
     background: var(--light-accent);
-    transition: outline .2s, background-color .2s;
+    transition: outline .2s, background-color .2s, color .2s;
 }
 
 .vertical {
@@ -89,7 +90,7 @@ main {
     visibility: hidden !important;
 }
 
-button:hover {
+button:not(.inactive):hover {
     outline: 4px solid var(--accent);
     background-color: var(--foreground);
 }
@@ -130,4 +131,17 @@ aside {
 
 .name {
     font-size: 24pt;
+}
+
+.title {
+    font-size: 24pt;
+    color: var(--title);
+    letter-spacing: 1px;
+    height: 100px;
+    align-content: center;
+}
+
+.inactive {
+    background-color: var(--inactive);
+    color: var(--inactive);
 }

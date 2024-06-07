@@ -1,4 +1,16 @@
 const promptFrame = document.querySelector('#prompts');
+class player {
+    constructor(item) {
+        this.display = item.querySelector('.score');
+        this.score = 0;
+    }
+    addScore(points) {
+        this.score += parseInt(points);
+        this.display.innerText = `${this.score} pt`;
+    }
+}
+const p1 = new player(document.querySelector('#player1'));
+const p2 = new player(document.querySelector('#player2'));
 const prompts = [{
     title: 'Section 1',
     prompts: ['a', 'b', 'c', 'd', 'e']
@@ -19,13 +31,17 @@ const prompts = [{
     title: 'Section 5',
     prompts: ['a', 'b', 'c', 'd', 'e']
 },
-]
+];
 
 function make(item) { return document.createElement(item.toString()); }
 
 for (let section of prompts) {
     let column = make('section');
     column.classList.add('container', 'vertical')
+    let title = make('h2')
+    title.innerText = section.title
+    title.classList.add('title')
+    column.append(title)
     promptFrame.append(column)
     for (const [index, card] of section.prompts.entries()) {
         let promptCard = make('button');
@@ -40,5 +56,6 @@ for (let section of prompts) {
 
 promptFrame.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(e.submitter.value);
+    p1.addScore(e.submitter.value);
+    e.submitter.classList.add('inactive')
 })
