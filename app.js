@@ -150,7 +150,7 @@ const prompts = [{
     prompts: [
         { question: 'Name the iconic RateMyTrance', answer: 'Between the lens of you and I' },
         { question: 'Which of these facts is true?\n\nBats are blind\n\nThe fingerprints of koalas are so similar to humans they have been mistaken at crime scenes.', answer: 'Koalas do crime' },
-        { question: '"He is black" is the 10x google translation of what movie title?', answer: 'Black Adam' },
+        { question: '"The Best Shooter Ever" is the 10x google translation of what movie title?', answer: 'Top Gun' },
         { question: 'How many times have the boys played mad libs?', answer: '27' },
         { question: 'During the improv exercises bonus episode, what was the teacher\'s name at Clown College?', answer: 'Bell Jingles' }
     ]
