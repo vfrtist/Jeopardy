@@ -18,7 +18,7 @@ class Card {
         this.question = question;
         this.answer = answer;
         this.score = score;
-        this.setup()
+        this.setup();
     }
 
     setup() {
@@ -28,19 +28,19 @@ class Card {
         this.container.addEventListener('click', (e) => {
             e.preventDefault()
             if (!this.container.classList.contains('inactive')) {
-                this.container.classList.add('inactive')
+                this.container.classList.add('inactive');
                 promptFrame.classList.toggle('hidden');
                 // frame
                 const modal = make('dialog');
                 modal.classList.add('container', 'vertical');
-                const [upper, lower] = this.buildUpperLower()
-                modal.append(upper, lower)
+                const [upper, lower] = this.buildUpperLower();
+                modal.append(upper, lower);
                 document.body.append(modal);
                 lower.querySelector('.refresh').addEventListener('click', () => {
                     upper.innerText = this.answer;
                     this.buildScoreButtons();
                 })
-                modal.showModal()
+                modal.showModal();
             }
         })
     }
@@ -48,15 +48,15 @@ class Card {
     buildUpperLower() {
         // upper
         const upper = make('div');
-        upper.classList.add('upper', 'container', 'vertical', 'cabin')
-        upper.innerText = this.question
+        upper.classList.add('upper', 'container', 'vertical', 'cabin');
+        upper.innerText = this.question;
         // lower
         const lower = make('div');
         const refresh = make('div');
         lower.classList.add('lower', 'container', 'horizontal');
-        refresh.classList.add('refresh', 'cabin')
-        refresh.innerText = 'Reveal Answer'
-        lower.append(refresh)
+        refresh.classList.add('refresh', 'cabin');
+        refresh.innerText = 'Reveal Answer';
+        lower.append(refresh);
         // combine
         return [upper, lower];
     }
@@ -82,20 +82,20 @@ class Card {
         lower.append(scoreP1, scoreBoth, scoreP2, scoreNone);
 
         scoreP1.addEventListener('click', () => {
-            p1.addScore(this.score)
-            this.closeDialog()
+            p1.addScore(this.score);
+            this.closeDialog();
         })
         scoreP2.addEventListener('click', () => {
-            p2.addScore(this.score)
-            this.closeDialog()
+            p2.addScore(this.score);
+            this.closeDialog();
         })
         scoreBoth.addEventListener('click', () => {
-            p1.addScore(this.score)
-            p2.addScore(this.score)
-            this.closeDialog()
+            p1.addScore(this.score);
+            p2.addScore(this.score);
+            this.closeDialog();
         })
         scoreNone.addEventListener('click', () => {
-            this.closeDialog()
+            this.closeDialog();
         })
     }
 
@@ -105,15 +105,15 @@ class Card {
     }
 
     getProperties() {
-        return [this.question, this.answer, this.score]
+        return [this.question, this.answer, this.score];
     }
 }
 
 const promptFrame = document.querySelector('#prompts');
 const p1 = new Player(document.querySelector('#player1'));
 const p2 = new Player(document.querySelector('#player2'));
-p1.container.classList.add('player1', 'cabin')
-p2.container.classList.add('player2', 'cabin')
+p1.container.classList.add('player1', 'cabin');
+p2.container.classList.add('player2', 'cabin');
 
 const prompts = [{
     title: 'Names',
@@ -148,7 +148,7 @@ const prompts = [{
 {
     title: 'Bonus Content',
     prompts: [
-        { question: 'Name the iconic RateMyTrance', answer: 'Between the lens of you and I' },
+        { question: 'Name the iconic RateMyTrance', answer: 'The Bridge Between the Lens of You and I' },
         { question: 'Which of these facts is true?\n\nBats are blind\n\nThe fingerprints of koalas are so similar to humans they have been mistaken at crime scenes.', answer: 'Koalas do crime' },
         { question: '"The Best Shooter Ever" is the 10x google translation of what movie title?', answer: 'Top Gun' },
         { question: 'How many times have the boys played mad libs?', answer: '27' },
@@ -169,12 +169,12 @@ const prompts = [{
 
 for (let section of prompts) {
     let column = make('section');
-    column.classList.add('container', 'vertical')
-    let title = make('h2')
-    title.innerText = section.title
-    title.classList.add('title', 'cabin')
-    column.append(title)
-    promptFrame.append(column)
+    column.classList.add('container', 'vertical');
+    let title = make('h2');
+    title.innerText = section.title;
+    title.classList.add('title', 'cabin');
+    column.append(title);
+    promptFrame.append(column);
     for (const [index, prompt] of section.prompts.entries()) {
         let promptCard = new Card(prompt.question, prompt.answer, (index + 1) * 100);
         column.append(promptCard.container);
